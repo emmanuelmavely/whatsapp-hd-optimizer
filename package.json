@@ -1,0 +1,8 @@
+{
+  "name": "wa-hd-optimizer",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Offline-first WhatsApp video preparation PWA",
+  "scripts": {"test": "node --test test/app.test.mjs"},
+  "engines": {"node": ">=20"}
+}
