@@ -13,3 +13,10 @@ test('encoding recipe keeps the WhatsApp-safe constraints', () => {
 test('service worker has versioned caching and activation cleanup', () => {
   assert.match(sw, /wa-hd-assets-v3/); assert.match(sw, /skipWaiting/); assert.match(sw, /clients\.claim/);
 });
+test('media flow has a unified input, comparison output, and no stale video globals', () => {
+  assert.match(html, /accept="image\/\*,video\/\*"/);
+  assert.match(html, /createImageBitmap\(media\)/);
+  assert.match(html, /4096\/bitmap\.width/);
+  assert.match(html, /await \$\('beforeVideo'\)\.play\(\)/);
+  assert.doesNotMatch(html, /(?<!\$\(')beforeVideo\.play\(\)/);
+});
