@@ -1,6 +1,6 @@
 # WA HD Optimizer
 
-An offline-first, client-side PWA for preparing videos on-device with FFmpeg WebAssembly. The selected video is written to the worker's in-memory filesystem; no application server receives it.
+An offline-first, client-side PWA for preparing videos and photos on-device. Videos use FFmpeg WebAssembly; photos use the Squoosh image codec. The selected media stays in the browser and no application server receives it. Photo output is JPEG, resized to a maximum of **4096 × 2692 pixels** while preserving aspect ratio.
 
 ## Run
 
