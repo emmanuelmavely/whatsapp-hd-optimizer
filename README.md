@@ -1,6 +1,6 @@
 # WA HD Optimizer
 
-An offline-first, client-side PWA for preparing videos and photos on-device. Videos use FFmpeg WebAssembly; photos use the Squoosh image codec. The selected media stays in the browser and no application server receives it. Photo output is JPEG, resized to a maximum of **4096 × 2692 pixels** while preserving aspect ratio.
+An offline-first, client-side PWA for preparing videos and photos on-device. Videos use FFmpeg WebAssembly; photos use a local browser JPEG encoder with the same resize and quality workflow intended for Squoosh. The selected media stays in the browser and no application server receives it. Photo output is JPEG, resized to a maximum of **4096 × 2692 pixels** while preserving aspect ratio.
 
 ## Run
 
@@ -10,7 +10,7 @@ Requires Node 20 (see `.nvmrc`). Serve the folder over HTTP because service work
 npx --yes http-server . -p 8080
 ```
 
-Open `http://localhost:8080`, allow the FFmpeg assets to cache once, then the app can be used offline. The first load needs network access for the pinned jsDelivr assets.
+Open `http://localhost:8080`, allow the FFmpeg assets to cache once, then the app can be used offline. The first load needs network access for the pinned jsDelivr assets. When using a plain `http://<LAN-IP>` address, browsers disable CacheStorage and the app loads assets directly instead; use HTTPS for full offline PWA behavior.
 
 ## Test
 
