@@ -1,4 +1,4 @@
-const CACHE_NAME = 'wa-hd-assets-v3';
+const CACHE_NAME = 'wa-hd-assets-v4';
 const CORE = [
   './', './index.html', './manifest.json',
   'https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.12.10/dist/esm/index.js',

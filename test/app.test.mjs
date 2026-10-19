@@ -11,7 +11,7 @@ test('encoding recipe keeps the WhatsApp-safe constraints', () => {
   for (const value of ['profile:v','baseline','3.1','2650k','5300k','faststart','1080','1920']) assert.match(html, new RegExp(value));
 });
 test('service worker has versioned caching and activation cleanup', () => {
-  assert.match(sw, /wa-hd-assets-v3/); assert.match(sw, /skipWaiting/); assert.match(sw, /clients\.claim/);
+  assert.match(sw, /wa-hd-assets-v4/); assert.match(sw, /skipWaiting/); assert.match(sw, /clients\.claim/);
 });
 test('media flow has a unified input, comparison output, and no stale video globals', () => {
   assert.match(html, /accept="image\/\*,video\/\*"/);
@@ -19,4 +19,10 @@ test('media flow has a unified input, comparison output, and no stale video glob
   assert.match(html, /4096\/bitmap\.width/);
   assert.match(html, /await \$\('beforeVideo'\)\.play\(\)/);
   assert.doesNotMatch(html, /(?<!\$\(')beforeVideo\.play\(\)/);
+});
+test('FFmpeg blob worker rewrites relative module imports', () => {
+  assert.match(html, /cachedText\(workerUrl\)/);
+  assert.match(html, /replace\(/);
+  assert.match(html, /workerBase\}\$1/);
+  assert.match(html, /classWorkerURL:worker/);
 });
