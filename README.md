@@ -28,3 +28,13 @@ docker run --rm -p 8080:8080 wa-hd-optimizer
 ```
 
 FFmpeg's browser build and the WhatsApp inspector are external runtime behavior; neither can be validated by the static test suite.
+
+## Publish on GitHub Pages
+
+This repository includes `.github/workflows/pages.yml`. After pushing the `main` branch:
+
+1. Open the repository on GitHub and go to **Settings → Pages**.
+2. Under **Build and deployment**, choose **GitHub Actions**.
+3. Pushes to `main` will deploy the static PWA automatically.
+
+The resulting site is served over HTTPS, which enables the service worker and full offline caching. The first visit still needs network access to cache the pinned FFmpeg assets.
